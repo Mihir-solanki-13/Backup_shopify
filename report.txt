@@ -47,3 +47,8 @@ help to generate acces token :  https://help.plytix.com/en/getting-api-credentia
 trying to implement this
 
 ## now to trigger that url every day , use celery 
+
+
+## restore product ,
+I have json field - it either have 1 product detail or multiple product details , 
+so first i fetch the json data related to that id , then run a for loop to update all  product as by put 

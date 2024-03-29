@@ -18,7 +18,7 @@ class Object(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     object_type = models.CharField(max_length=10, choices=OBJECT_TYPES)  # Specify choices
     data = models.JSONField()  # Field to store JSON data
-    version = models.UUIDField(default=uuid.uuid4, editable=False)  # Default UUID
+    version = models.UUIDField(default=uuid.uuid4)  # Default UUID
     backup_date = models.DateField(default=timezone.now().date())  # Current date/time
 
     def __str__(self):  # Correcting method name to __str__
