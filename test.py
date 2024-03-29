@@ -27,7 +27,7 @@ def fetch_shopify_data():
 
 
 # get a particular product
-id = 9067311923482
+id = 9075171688730
 
 
 def get_product_withid():
@@ -44,7 +44,7 @@ def get_product_withid():
     
     # Make the GET request
     response = requests.get(url, headers=headers)
-    
+    print(response.status_code)
     # Check if the request was successful
     if response.status_code == 200:
         # Parse JSON response and process the data as needed
@@ -54,5 +54,6 @@ def get_product_withid():
         print({'message': 'Data retrieved successfully.', 'data': data})
     else:
          print({'error': 'Failed to fetch data from the server.'}, status=response.status_code)
+
 
 data = get_product_withid()

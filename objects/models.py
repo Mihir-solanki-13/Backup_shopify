@@ -3,8 +3,8 @@ from django.db import models
 from django.utils import timezone
 
 OBJECT_TYPES = [
-        ('Product', 'product'),
-        ('Order', 'order'),
+        ('products', 'products'),
+        ('order', 'order'),
         ('type3', 'Type 3'),
         # Add more choices as needed
     ]

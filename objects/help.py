@@ -34,6 +34,27 @@ def backup_data(object):
 
     new_instance.save()
 
+def backup_data_id(object,id):
+    url = f'https://{shop_url}/admin/api/2024-01/{object}/{id}.json'
+
+    # Make the request with the access token included in the headers
+    headers = {
+        'X-Shopify-Access-Token': access_token,
+    }
+
+    response = requests.get(url, headers=headers)
+    data = response.json()
+    # print(data)
+    new_instance = Object(
+    store=store_instances,  # Replace your_store_instance with the actual Store instance
+    object_type=object,  # Assuming the object_type is "product"
+    data=data,  # Replace data with your actual JSON data
+    version=uuid.uuid4(),  # Generate a UUID for the version
+    backup_date=timezone.now().date()  # Set the backup_date to the current date/time
+    )
+
+    new_instance.save()
+
 def create_product(data):
     url = f'https://{shop_url}/admin/api/2024-01/products.json'
     headers = {
@@ -63,7 +84,7 @@ def restore(id):
     products = Obj.data
     for product in products['products']:
         response = restore_shopify_data('products', {'product': product})
-
+        print(product)
         if response.status_code != 200:
              print('creating product')
             #  print(product)
