@@ -3,10 +3,8 @@ import requests
 import json
 from django.http import HttpResponse
 from django.utils import timezone
-from .models import MyModel  # Replace 'myapp' with the name of your Django app
+
 from celery.schedules import crontab
-
-
 
 shop_url = 'quickstart-b4fa8ebd.myshopify.com'
 access_token = ''
@@ -21,10 +19,11 @@ def backup_product_data(request):
         'X-Shopify-Access-Token': access_token,
         'Content-Type': 'application/json'
     }
+
     response = requests.get(url, headers=headers)
     data = response.json()
 
-    parsed_data = data
+     
 
 
     return HttpResponse("Data fetched and stored successfully!")
