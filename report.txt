@@ -1,0 +1,49 @@
+Requirement Analysis
+
+Build an app
+
+what , why , purpose 
+
+
+we have to create a project like backup master 
+
+what it will do , (we create online stores on shopify , so to backup all that thing )  
+
+Que:- Do we need to clone of backup master ??  — yep
+
+///
+Form a django project connect it with  postgres and fetch the data using the api 
+
+## Problem No jsonfield working in sqlite
+
+We have to use sqlite , but json field in sqlite is not working on my system , but working fine on my college system ,
+
+Change the precompiled sqlite3.dll from python and download new and paste that their
+
+solution:  https://stackoverflow.com/questions/62637458/django-3-1-fields-e180-sqlite-does-not-support-jsonfields
+
+Solved
+
+
+## upto now 
+model is created , jsonfield is working with sqlite , 
+Now 
+how to we know if a product is added to our store , so that we can fetch the response and store that
+
+
+help to generate acces token :  https://help.plytix.com/en/getting-api-credentials-from-your-shopify-store
+
+
+### problem
+##  when product is added in store , how do we get to know , is there any signal or 
+## do we periodically check for new product (this can be done by count all product each time and if there is any increment we store that)
+---> periodically (tougf though)
+
+ if  product is added only we can easily do by count, but what if we delete , update , the product ?? 
+ first way fetch each product and check with the id , and update each time with the latest (as how to know it is updated)
+
+ other way fetch all product , store them and delete old one (stored ) (easy way ) 
+
+trying to implement this
+
+## now to trigger that url every day , use celery 
