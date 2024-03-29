@@ -34,8 +34,20 @@ def backup_data(object):
 
     new_instance.save()
 
+def create_product(data):
+    url = f'https://{shop_url}/admin/api/2024-01/products.json'
+    headers = {
+        "X-Shopify-Access-Token": access_token,
+        "Content-Type": "application/json"
+    }
+   
+    response = requests.post(url, json=data, headers=headers)
 
-def restore_shopify_data(data):
+    print(response.status_code)
+    print(response.json())
+
+
+def restore_shopify_data(resource , data):
     url = f'https://{shop_url}/admin/api/2024-01/products/{data["product"]["id"]}.json'
     headers = {
         'X-Shopify-Access-Token': access_token,
@@ -43,7 +55,7 @@ def restore_shopify_data(data):
         'Accept': 'application/json'
     }
     response = requests.put(url, headers=headers, data=json.dumps(data))
-    print(response.status_code)
+    
     return response
 
 def restore(id):
@@ -53,6 +65,8 @@ def restore(id):
         response = restore_shopify_data('products', {'product': product})
 
         if response.status_code != 200:
-            print(f"Error restoring product: {response.text}") 
+             print('creating product')
+            #  print(product)
+             create_product({'product': product})
     # print(data)
     
