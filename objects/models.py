@@ -4,7 +4,7 @@ from django.utils import timezone
 
 OBJECT_TYPES = [
         ('products', 'products'),
-        ('order', 'order'),
+        ('orders', 'orders'),
         ('type3', 'Type 3'),
         # Add more choices as needed
     ]
@@ -21,5 +21,5 @@ class Object(models.Model):
     version = models.UUIDField(default=uuid.uuid4)  # Default UUID
     backup_date = models.DateField(default=timezone.now().date())  # Current date/time
 
-    def __str__(self):  # Correcting method name to __str__
-        return str(self.data)[13:32]   
+    def __str__(self):
+        return f"{self.object_type}_{self.version}"  

@@ -84,7 +84,7 @@ def restore(id):
     products = Obj.data
     for product in products['products']:
         response = restore_shopify_data('products', {'product': product})
-        print(product)
+        # print(response.status_code)
         if response.status_code != 200:
              print('creating product')
             #  print(product)
