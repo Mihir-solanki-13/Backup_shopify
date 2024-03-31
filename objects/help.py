@@ -12,8 +12,11 @@ access_token = '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'
  
 store_instances = Store.objects.get(organization_name="Mihir")
 
-def backup_data(object):
-    url = f'https://{shop_url}/admin/api/2024-01/{object}.json'
+
+# product-2024-01
+# themes - 2023-10
+def backup_data(object,version):
+    url = f'https://{shop_url}/admin/api/{version}/{object}.json'
 
     # Make the request with the access token included in the headers
     headers = {
@@ -22,6 +25,7 @@ def backup_data(object):
     }
 
     response = requests.get(url, headers=headers)
+    print(response.status_code,response.text)
     data = response.json()
     # print(data)
     new_instance = Object(
@@ -34,8 +38,8 @@ def backup_data(object):
 
     new_instance.save()
 
-def backup_data_id(object,id):
-    url = f'https://{shop_url}/admin/api/2024-01/{object}/{id}.json'
+def backup_data_id(object,id,version):
+    url = f'https://{shop_url}/admin/api/{version}/{object}/{id}.json'
 
     # Make the request with the access token included in the headers
     headers = {
