@@ -5,7 +5,7 @@ from django.utils import timezone
 OBJECT_TYPES = [
         ('products', 'products'),
         ('orders', 'orders'),
-        ('type3', 'Type 3'),
+        ('themes', 'themes'),
         # Add more choices as needed
     ]
 
