@@ -3,14 +3,14 @@ from django.http import HttpResponse
 from .help import *
 # Create your views here.
 
-def fetch_restore(request,object_type,version):
-    backup_data(object_type,version)
+def fetch_restore(request,object_type):
+    backup_data(object_type)
 
     return HttpResponse("Data fetched and stored successfully!")
 
-def fetch_restore_id(request,id,object_type,version):
+def fetch_restore_id(request,id,object_type):
     # print(object_type)
-    backup_data_id(object_type,id,version)
+    backup_data_id(object_type,id)
 
     return HttpResponse("Data fetched and stored successfully!")
 

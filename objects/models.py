@@ -22,4 +22,4 @@ class Object(models.Model):
     backup_date = models.DateField(default=timezone.now().date())  # Current date/time
 
     def __str__(self):
-        return f"{self.object_type}_{self.version}"  
+        return f"{self.object_type}_{self.uuid}"  

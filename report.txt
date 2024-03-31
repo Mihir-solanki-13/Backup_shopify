@@ -56,3 +56,7 @@ so first i fetch the json data related to that id , then run a for loop to updat
 -- succesfully implement this and if a product is not exist create that , but there is issue with image (no image disply)
 
 *** jab product nhi hoga tab , create kr rahai hai product jisse id change ho rhi hai ** 
+
+** Try backuping all objects with single endpoints , 
+and restore them too
+

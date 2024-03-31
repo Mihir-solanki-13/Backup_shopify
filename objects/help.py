@@ -15,10 +15,11 @@ store_instances = Store.objects.get(organization_name="Mihir")
 
 # product-2024-01
 # themes - 2023-10
-def backup_data(object,version):
-    url = f'https://{shop_url}/admin/api/{version}/{object}.json'
+def backup_data(object_type):
+    # print(object_type)
+    url = f'https://{shop_url}/admin/api/2024-01/{object_type}.json'
 
-    # Make the request with the access token included in the headers
+    # Make the request with the access t-oken included in the headers
     headers = {
         'X-Shopify-Access-Token': access_token,
         'Content-Type': 'application/json'
@@ -30,16 +31,16 @@ def backup_data(object,version):
     # print(data)
     new_instance = Object(
     store=store_instances,  # Replace your_store_instance with the actual Store instance
-    object_type=object,  # Assuming the object_type is "product"
+    object_type=object_type,  # Assuming the object_type is "product"
     data=data,  # Replace data with your actual JSON data
-    version=uuid.uuid4(),  # Generate a UUID for the version
+    uuid=uuid.uuid4(),  # Generate a UUID for the version
     backup_date=timezone.now().date()  # Set the backup_date to the current date/time
     )
 
     new_instance.save()
 
-def backup_data_id(object,id,version):
-    url = f'https://{shop_url}/admin/api/{version}/{object}/{id}.json'
+def backup_data_id(object,id):
+    url = f'https://{shop_url}/admin/api/2024-01/{object}/{id}.json'
 
     # Make the request with the access token included in the headers
     headers = {
@@ -53,45 +54,58 @@ def backup_data_id(object,id,version):
     store=store_instances,  # Replace your_store_instance with the actual Store instance
     object_type=object,  # Assuming the object_type is "product"
     data=data,  # Replace data with your actual JSON data
-    version=uuid.uuid4(),  # Generate a UUID for the version
+    uuid=uuid.uuid4(),  # Generate a UUID for the version
     backup_date=timezone.now().date()  # Set the backup_date to the current date/time
     )
 
     new_instance.save()
 
-def create_product(data):
-    url = f'https://{shop_url}/admin/api/2024-01/products.json'
+def create_obj(object_type,data):
+    url = f'https://{shop_url}/admin/api/2024-01/{object_type}.json'
     headers = {
         "X-Shopify-Access-Token": access_token,
         "Content-Type": "application/json"
     }
-   
+    print(data)
     response = requests.post(url, json=data, headers=headers)
 
     print(response.status_code)
     print(response.json())
 
 
-def restore_shopify_data(resource , data):
-    url = f'https://{shop_url}/admin/api/2024-01/products/{data["product"]["id"]}.json'
+def restore_shopify_data(object_type , data):
+    # print(data[object_type]["id"])
+    # print("data" , data)
+    url = f'https://{shop_url}/admin/api/2024-01/{object_type}/{data[object_type[:-1]]["id"]}.json'
     headers = {
         'X-Shopify-Access-Token': access_token,
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     }
     response = requests.put(url, headers=headers, data=json.dumps(data))
-    
+    print(response.status_code)
     return response
 
 def restore(id):
-    Obj = Object.objects.get(version=id)
-    products = Obj.data
-    for product in products['products']:
-        response = restore_shopify_data('products', {'product': product})
-        # print(response.status_code)
+    Obj = Object.objects.get(uuid=id)
+    print(Obj.uuid)
+    data = Obj.data
+    object_type = Obj.object_type
+    
+    if object_type[:-1] in data:
+    #   print(data)
+      response = restore_shopify_data(object_type, data) 
+      if response.status_code != 200:
+            print(f'Creating {object_type}')
+            create_obj(object_type,data)
+       
+    else:
+     for item in data[object_type]:
+        # print(item)
+        response = restore_shopify_data(object_type, {object_type[:-1]: item}) 
+        # remove the last character as query 
         if response.status_code != 200:
-             print('creating product')
-            #  print(product)
-             create_product({'product': product})
-    # print(data)
+            print(f'Creating {object_type}')
+            create_obj(object_type, {object_type[:-1]: item})
+        # print(response.status_code,response.text)
     
