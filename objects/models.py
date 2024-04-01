@@ -6,6 +6,10 @@ OBJECT_TYPES = [
         ('products', 'products'),
         ('orders', 'orders'),
         ('themes', 'themes'),
+        ('pages','pages'),
+        ('custom_collections','custom_collections'),
+        ('smart_collections','smart_collections'),
+        ('customers','customers')
         # Add more choices as needed
     ]
 
@@ -16,10 +20,13 @@ class Store(models.Model):
 
 class Object(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
-    object_type = models.CharField(max_length=10, choices=OBJECT_TYPES)  # Specify choices
+    object_type = models.CharField(max_length=50, choices=OBJECT_TYPES)  # Specify choices
     data = models.JSONField()  # Field to store JSON data
     uuid = models.UUIDField(default=uuid.uuid4)  # Default UUID
     backup_date = models.DateField(default=timezone.now().date())  # Current date/time
 
     def __str__(self):
         return f"{self.object_type}_{self.uuid}"  
+    
+# log of restore api
+
