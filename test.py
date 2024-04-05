@@ -3,8 +3,8 @@ import json
 
 shop_url = 'quickstart-b4fa8ebd.myshopify.com'
 access_token = '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'
-# cli_token = 'atkn_20eaf778ff3ea2aae723595588b7078080228d474e0183414d58600007900682'
-# # Define the API endpoint URL
+cli_token = 'atkn_20eaf778ff3ea2aae723595588b7078080228d474e0183414d58600007900682'
+# Define the API endpoint URL
 
 
 # # #get all product
@@ -79,28 +79,31 @@ access_token = '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'
 
 #  theme 
 
-# def backup_data(object):
-#     url = f'https://{shop_url}/admin/api/2023-10/{object}.json'
+def backup_data(object):
+    url = f'https://{shop_url}//admin/api/2024-04/orders/5916810379546/metafields.json'
 
-#     # Make the request with the access token included in the headers
-#     headers = {
-#         'X-Shopify-Access-Token': access_token,
-#          'Content-Type': 'application/json',
-#     }
+    
+    # Make the request with the access token included in the headers
+    headers = {
+        'X-Shopify-Access-Token': access_token,
+         
+    }
 
-#     response = requests.get(url, headers=headers)
-#     print(response.status_code,response.text)
-#     data = response.json()
-#     # print(data)
-#     # new_instance = Object(
-#     # store=store_instances,  # Replace your_store_instance with the actual Store instance
-#     # object_type=object,  # Assuming the object_type is "product"
-#     # data=data,  # Replace data with your actual JSON data
-#     # version=uuid.uuid4(),  # Generate a UUID for the version
-#     # backup_date=timezone.now().date()  # Set the backup_date to the current date/time
-#     # )
+    response = requests.get(url, headers=headers)
+    print(response.status_code,response.text)
+    data = response.json()
 
-#     # new_instance.save()
+backup_data('orders')
+    # print(data)
+    # new_instance = Object(
+    # store=store_instances,  # Replace your_store_instance with the actual Store instance
+    # object_type=object,  # Assuming the object_type is "product"
+    # data=data,  # Replace data with your actual JSON data
+    # version=uuid.uuid4(),  # Generate a UUID for the version
+    # backup_date=timezone.now().date()  # Set the backup_date to the current date/time
+    # )
+
+    # new_instance.save()
 
 # backup_data('themes')
 
@@ -108,39 +111,132 @@ access_token = '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'
 
 
 
-def create_product(data,version):
-    url = f'https://{shop_url}/admin/api/{version}/{object}.json'
-    headers = {
-        "X-Shopify-Access-Token": access_token,
-        "Content-Type": "application/json"
-    }
+# def create_product(data,version):
+#     url = f'https://{shop_url}/admin/api/{version}/{object}.json'
+#     headers = {
+#         "X-Shopify-Access-Token": access_token,
+#         "Content-Type": "application/json"
+#     }
    
-    response = requests.post(url, json=data, headers=headers)
+#     response = requests.post(url, json=data, headers=headers)
 
-    print(response.status_code)
-    print(response.json())
+#     print(response.status_code)
+#     print(response.json())
 
 
-def restore_shopify_data(resource , data,version):
-    url = f'https://{shop_url}/admin/api/{version}/{object}/{data["product"]["id"]}.json'
-    headers = {
-        'X-Shopify-Access-Token': access_token,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    }
-    response = requests.put(url, headers=headers, data=json.dumps(data))
+# def restore_shopify_data(resource , data,version):
+#     url = f'https://{shop_url}/admin/api/{version}/{object}/{data["product"]["id"]}.json'
+#     headers = {
+#         'X-Shopify-Access-Token': access_token,
+#         'Content-Type': 'application/json',
+#         'Accept': 'application/json'
+#     }
+#     response = requests.put(url, headers=headers, data=json.dumps(data))
     
-    return response
+#     return response
+# data = {'customer':   'first_name': 'Russell', 'last_name': 'Winfield', 'company': 'Company Name', 'address1': '105 Victoria St', 'address2': None, 'city': 'Toronto', 'province': None, 'country': 'Canada', 'zip': 'M5C1N7', 'phone': None, 'name': 'Russell Winfield', 'province_code': None, 'country_code': 'CA', 'country_name': 'Canada', 'default': True}], 'tax_exemptions': [], 'email_marketing_consent': {'state': 'not_subscribed', 'opt_in_level': 'single_opt_in', 'consent_updated_at': None}, 'sms_marketing_consent': {'state': 'not_subscribed', 'opt_in_level': 'single_opt_in', 'consent_updated_at': None, 'consent_collected_from': 'OTHER'}, 'admin_graphql_api_id': 'gid://shopify/Customer/7971955245338', 'default_address': {'id': 9957007098138, 'customer_id': 7971955245338, 'first_name': 'Russell', 'last_name': 'Winfield', 'company': 'Company Name', 'address1': '105 Victoria St', 'address2': None, 'city': 'Toronto', 'province': None, 'country': 'Canada', 'zip': 'M5C1N7', 'phone': None, 'name': 'Russell Winfield', 'province_code': None, 'country_code': 'CA', 'country_name': 'Canada', 'default': True}}}
+# data = '{"customer":{"first_name":"Steve","last_name":"Lastnameson","email":"steve.lastnameson@example.com","phone":"+15142546011","verified_email":true,"addresses":[{"address1":"123 Oak St","city":"Ottawa","province":"ON","phone":"555-1212","zip":"123 ABC","last_name":"Lastnameson","first_name":"Mother","country":"CA"}],"password":"newpass","password_confirmation":"newpass","send_email_welcome":false}}'
+# data = {
+#     "customer": {
+#         "first_name": "kbc",
+#         "last_name": "Lastnameson",
+#         "email": "steve.tnameson@example.com",
+#         "phone": "+15142549011",
+#         "verified_email": True,
+#         "addresses": [
+#             {
+#                 "address1": "123 Oak St",
+#                 "city": "Ottawa",
+#                 "province": "ON",
+#                 "phone": "555-1212",
+#                 "zip": "123 ABC",
+#                 "last_name": "Lastnameson",
+#                 "first_name": "Mother",
+#                 "country": "CA"
+#             }
+#         ],
+#         "password": "newpass",
+#         "password_confirmation": "newpass",
+#         "send_email_welcome": False
+#     }
+# }
 
-def restore(id):
-    Obj = Object.objects.get(version=id)
-    products = Obj.data
-    for product in products['products']:
-        response = restore_shopify_data('products', {'product': product})
-        # print(response.status_code)
-        if response.status_code != 200:
-             print('creating product')
-            #  print(product)
-             create_product({'product': product})
-    # print(data)
-    
+# def create_obj(object_type,data):
+#     url = f'https://{shop_url}/admin/api/2024-01/customers.json'
+#     headers = {
+#         "X-Shopify-Access-Token": access_token,
+#         "Content-Type": "application/json"
+#     }
+#     print(data)
+#     response = requests.post(url, json=data, headers=headers)
+
+#     print(response.status_code,response.text)
+#     print(response.json())
+
+# create_obj('customers',data)
+
+# import requests
+# da = {"order": {"id": 5916780364058, "line_items": [{"id": 15075125264666, "admin_graphql_api_id": "gid://shopify/LineItem/15075125264666", "current_quantity": 1, "fulfillable_quantity": 1, "fulfillment_service": "manual", "fulfillment_status": null, "gift_card": false, "grams": 0, "name": "The Collection Snowboard: Hydrogen", "price": "600.00", "price_set": {"shop_money": {"amount": "600.00", "currency_code": "INR"}, "presentment_money": {"amount": "600.00", "currency_code": "INR"}}, "product_exists": true, "product_id": 9088415465754, "properties": [], "quantity": 1, "requires_shipping": true, "sku": "", "taxable": true, "title": "The Collection Snowboard: Hydrogen", "total_discount": "0.00", "total_discount_set": {"shop_money": {"amount": "0.00", "currency_code": "INR"}, "presentment_money": {"amount": "0.00", "currency_code": "INR"}}, "variant_id": 48266826055962, "variant_inventory_management": "shopify", "variant_title": null, "vendor": "Hydrogen Vendor", "tax_lines": [{"channel_liable": false, "price": "54.00", "price_set": {"shop_money": {"amount": "54.00", "currency_code": "INR"}, "presentment_money": {"amount": "54.00", "currency_code": "INR"}}, "rate": 0.09, "title": "CGST"}], "duties": [], "discount_allocations": []}, {"id": 15075125297434, "admin_graphql_api_id": "gid://shopify/LineItem/15075125297434", "current_quantity": 1, "fulfillable_quantity": 1, "fulfillment_service": "manual", "fulfillment_status": null, "gift_card": false, "grams": 0, "name": "The Collection Snowboard: Liquid", "price": "749.95", "price_set": {"shop_money": {"amount": "749.95", "currency_code": "INR"}, "presentment_money": {"amount": "749.95", "currency_code": "INR"}}, "product_exists": true, "product_id": 9088415531290, "properties": [], "quantity": 1, "requires_shipping": true, "sku": "", "taxable": true, "title": "The Collection Snowboard: Liquid", "total_discount": "0.00", "total_discount_set": {"shop_money": {"amount": "0.00", "currency_code": "INR"}, "presentment_money": {"amount": "0.00", "currency_code": "INR"}}, "variant_id": 48266826121498, "variant_inventory_management": "shopify", "variant_title": null, "vendor": "Hydrogen Vendor", "tax_lines": [{"channel_liable": false, "price": "67.50", "price_set": {"shop_money": {"amount": "67.50", "currency_code": "INR"}, "presentment_money": {"amount": "67.50", "currency_code": "INR"}}, "rate": 0.09, "title": "CGST"}], "duties": [], "discount_allocations": []}]}}
+# print(type(da))
+# data_dict = json.loads(da)
+# # dat_dict = json.loads(json_str)
+# dat = da.get('order')
+# print(dat)
+# line_items = dat['order'].get('line_items')
+# transactions = dat['order'].get('transactions')
+# data = {'order': {'line_items': line_items, 'transactions': transactions}}
+
+# data = {
+#     "order": {
+#         "line_items": [
+#             {
+#                 "title": "Big Brown Bear Boots",
+#                 "price": 74.99,
+#                 "grams": "1300",
+#                 "quantity": 3,
+#                 "tax_lines": [
+#                     {
+#                         "price": 13.5,
+#                         "rate": 0.06,
+#                         "title": "State tax"
+#                     }
+#                 ]
+#             }
+#         ],
+#         "transactions": [
+#             {
+#                 "kind": "sale",
+#                 "status": "success",
+#                 "amount": 238.47
+#             }
+#         ],
+#         "total_tax": 13.5,
+#         "currency": "EUR"
+#     }
+# }
+# order_data = json.loads(data)
+# def create_order(api_url, access_token, order_data):
+#     headers = {
+#         'X-Shopify-Access-Token': access_token,
+#         'Content-Type': 'application/json'
+#     }
+#     response = requests.post(api_url, json=order_data, headers=headers)
+#     print(response.status_code,response.text)
+#     if response.status_code == 201:
+#         return response.json()
+#     else:
+#         return None
+
+# Example usage:
+# api_url = f'https://{shop_url}/admin/api/2024-07/orders.json'
+# access_token = 'your_access_token'
+ 
+   
+
+# result = create_order(api_url, access_token, data)
+# if result:
+#     print("Order created successfully:", result)
+# else:
+#     print("Failed to create order.")
+
+ 

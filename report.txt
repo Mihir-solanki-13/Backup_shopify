@@ -60,3 +60,24 @@ so first i fetch the json data related to that id , then run a for loop to updat
 ** Try backuping all objects with single endpoints , 
 and restore them too
 
+// order 
+Orders-analysis
+
+we have 
+1.Re-open a closed order  ,, if we open a order  and old version is open then can use this 
+,Close an order         if open  order then can close that  again 
+
+?? can we delete order (yes)
+--- if the order is deleted then create it
+
+update how to change selected product ?? 
+*Cancels an order. Orders that are paid and have fulfillments can't be canceled.
+
+The GET orders endpoint returns open orders by default.
+
+
+update ** This operation allows for updating properties of an order including `buyer_accepts_marketing`, `email`, `phone`, `note`, `tags`, `metafields` and `shipping_address_attributes`. It is not for editing the items of an order.
+
+
+
+what are metafields ?? here

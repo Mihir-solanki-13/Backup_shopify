@@ -4,13 +4,22 @@ from django.utils import timezone
 
 OBJECT_TYPES = [
         ('products', 'products'),
-        ('orders', 'orders'),
+        ('orders', 'orders'), 
         ('themes', 'themes'),
         ('pages','pages'),
-        ('custom_collections','custom_collections'),
+        ('custom_collections','custom_collections'), 
         ('smart_collections','smart_collections'),
-        ('customers','customers')
-        # Add more choices as needed
+        ('locations','locations'),
+        ('policies','policies'),
+        ('shipping_zones','shipping_zones'),
+        ('customers','customers'),  
+        ('blogs','blogs'),
+         
+        ('inventory_levels','inventory_levels'),
+
+         ('saved_searches','saved_searches'), # graphql
+         ('files','files'),  #graph ql
+         
     ]
 
 class Store(models.Model):

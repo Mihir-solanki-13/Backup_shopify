@@ -4,10 +4,12 @@ import json
 
 from django.utils import timezone
 from .models import *
-
+from .help_ob import *
 
 shop_url = 'quickstart-b4fa8ebd.myshopify.com'
 access_token = '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' 
+# shop_url = 'trialproject12.myshopify.com/'
+# access_token = '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'
 # Define the API endpoint URL
  
 store_instances = Store.objects.get(organization_name="Mihir")
@@ -17,7 +19,11 @@ store_instances = Store.objects.get(organization_name="Mihir")
 # themes - 2023-10
 def backup_data(object_type):
     # print(object_type)
+    
+       
     url = f'https://{shop_url}/admin/api/2024-01/{object_type}.json'
+    if object_type == 'orders':
+         url = f'https://{shop_url}/admin/api/2024-01/{object_type}.json?status=any'
 
     # Make the request with the access t-oken included in the headers
     headers = {
@@ -40,9 +46,15 @@ def backup_data(object_type):
     new_instance.save()
 
 def backup_data_id(object,id):
+     
+        
     url = f'https://{shop_url}/admin/api/2024-01/{object}/{id}.json'
 
     # Make the request with the access token included in the headers
+    if object == 'orders':
+        url = f'https://{shop_url}/admin/api/2024-01/{object}/{id}.json?fields=id,line_items,transactions,tags'
+
+        
     headers = {
         'X-Shopify-Access-Token': access_token,
     }
@@ -66,10 +78,10 @@ def create_obj(object_type,data):
         "X-Shopify-Access-Token": access_token,
         "Content-Type": "application/json"
     }
-    print(data)
+    # print(data)
     response = requests.post(url, json=data, headers=headers)
 
-    print(response.status_code)
+    print(response.status_code,response.text)
     print(response.json())
 
 
@@ -83,7 +95,7 @@ def restore_shopify_data(object_type , data):
         'Accept': 'application/json'
     }
     response = requests.put(url, headers=headers, data=json.dumps(data))
-    print(response.status_code)
+    # print(response.status_code,response.text)
     return response
 
 def restore(id):
@@ -91,13 +103,20 @@ def restore(id):
     print(Obj.uuid)
     data = Obj.data
     object_type = Obj.object_type
+    if(object_type=='blogs'):
+        process(object_type,data)
+        return
+    # if(object_type=='orders'):
+    #     restore_order(object_type,data)
+    #     return
     
     if object_type[:-1] in data:
     #   print(data)
       response = restore_shopify_data(object_type, data) 
+      print(data)
       if response.status_code != 200:
             print(f'Creating {object_type}')
-            create_obj(object_type,data)
+            # create_obj(object_type,data)
        
     else:
      for item in data[object_type]:

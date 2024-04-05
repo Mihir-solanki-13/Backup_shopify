@@ -4,3 +4,6 @@ refer:https://stackoverflow.com/questions/62637458/django-3-1-fields-e180-sqlite
 
 In product
 While restore , sku is required field 
+ 
+custom collection  - manually
+smart collection   - automatic
