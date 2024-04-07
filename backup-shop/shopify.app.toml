@@ -3,7 +3,7 @@
 client_id = "9138029908cf46930654f1b220342be1"
 name = "backup-shop"
 handle = "backup-shop"
-application_url = "https://toy-first-obtained-missed.trycloudflare.com"
+application_url = "https://hiking-wearing-listing-solved.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://toy-first-obtained-missed.trycloudflare.com/auth/callback",
-  "https://toy-first-obtained-missed.trycloudflare.com/auth/shopify/callback",
-  "https://toy-first-obtained-missed.trycloudflare.com/api/auth/callback"
+  "https://hiking-wearing-listing-solved.trycloudflare.com/auth/callback",
+  "https://hiking-wearing-listing-solved.trycloudflare.com/auth/shopify/callback",
+  "https://hiking-wearing-listing-solved.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
