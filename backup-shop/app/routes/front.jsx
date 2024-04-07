@@ -19,9 +19,9 @@ function Card() {
   ];
 
   // Click handler for rows
-  // const handleRowClick = (id) => {
-  //   alert(`Clicked row with ID: ${id}`);
-  // };
+  const handleRowClick = (id) => {
+    alert(`Clicked row with ID: ${id}`);
+  };
 
   return (
     <div className="card-container">
