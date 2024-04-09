@@ -1,4 +1,4 @@
-from django.urls import path 
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -10,3 +10,15 @@ urlpatterns = [
 
   # restore/<id>/
     #backup/<store_id>/?object_type=''
+#
+# from django.urls import path, include
+# from rest_framework import routers
+# from .views import StoreViewSet, ObjectViewSet
+#
+# router = routers.DefaultRouter()
+# router.register(r'stores', StoreViewSet)
+# router.register(r'objects', ObjectViewSet)
+#
+# urlpatterns = [
+#     path('', include(router.urls)),
+# ]

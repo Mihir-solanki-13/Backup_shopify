@@ -3,7 +3,7 @@
 client_id = "9138029908cf46930654f1b220342be1"
 name = "backup-shop"
 handle = "backup-shop"
-application_url = "https://hiking-wearing-listing-solved.trycloudflare.com"
+application_url = "https://subjects-fine-anger-dm.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://hiking-wearing-listing-solved.trycloudflare.com/auth/callback",
-  "https://hiking-wearing-listing-solved.trycloudflare.com/auth/shopify/callback",
-  "https://hiking-wearing-listing-solved.trycloudflare.com/api/auth/callback"
+  "https://subjects-fine-anger-dm.trycloudflare.com/auth/callback",
+  "https://subjects-fine-anger-dm.trycloudflare.com/auth/shopify/callback",
+  "https://subjects-fine-anger-dm.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
