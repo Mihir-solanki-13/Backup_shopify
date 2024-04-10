@@ -1,0 +1,15 @@
+{
+  "C:/Users/HP/Pycharm_Projects/AcquX/Backup_shopify/backup-shop/node_modules/@shopify/polaris/build/esm/styles.css": {
+    "file": "assets/styles-BERa6bFK.css",
+    "src": "C:/Users/HP/Pycharm_Projects/AcquX/Backup_shopify/backup-shop/node_modules/@shopify/polaris/build/esm/styles.css"
+  },
+  "virtual:remix/server-build": {
+    "file": "index.js",
+    "name": "server-build",
+    "src": "virtual:remix/server-build",
+    "isEntry": true,
+    "css": [
+      "assets/server-build-Qq2qOeDq.css"
+    ]
+  }
+}

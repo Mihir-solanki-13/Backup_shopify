@@ -1,0 +1,187 @@
+{
+  "C:/Users/HP/Pycharm_Projects/AcquX/Backup_shopify/backup-shop/node_modules/@shopify/polaris/build/esm/styles.css": {
+    "file": "assets/styles-BERa6bFK.css",
+    "src": "C:/Users/HP/Pycharm_Projects/AcquX/Backup_shopify/backup-shop/node_modules/@shopify/polaris/build/esm/styles.css"
+  },
+  "_List-BG17b_l7.js": {
+    "file": "assets/List-BG17b_l7.js",
+    "name": "List",
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_Page-C1Otci6Z.js"
+    ]
+  },
+  "_Page-C1Otci6Z.js": {
+    "file": "assets/Page-C1Otci6Z.js",
+    "name": "Page",
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_index-C2nxS5mh.js"
+    ]
+  },
+  "_browser-D9NYnRAA.js": {
+    "file": "assets/browser-D9NYnRAA.js",
+    "name": "browser",
+    "imports": [
+      "_components-BgFg3hp0.js",
+      "_jsx-runtime-DDP7-w6c.js"
+    ]
+  },
+  "_components-BgFg3hp0.js": {
+    "file": "assets/components-BgFg3hp0.js",
+    "name": "components",
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_index-C2nxS5mh.js"
+    ]
+  },
+  "_index-C2nxS5mh.js": {
+    "file": "assets/index-C2nxS5mh.js",
+    "name": "index",
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js"
+    ]
+  },
+  "_jsx-runtime-DDP7-w6c.js": {
+    "file": "assets/jsx-runtime-DDP7-w6c.js",
+    "name": "jsx-runtime"
+  },
+  "_scroll-restoration-C8L2_2AT.js": {
+    "file": "assets/scroll-restoration-C8L2_2AT.js",
+    "name": "scroll-restoration",
+    "imports": [
+      "_components-BgFg3hp0.js",
+      "_jsx-runtime-DDP7-w6c.js"
+    ]
+  },
+  "_styles-CBAcYucQ.js": {
+    "file": "assets/styles-CBAcYucQ.js",
+    "name": "styles",
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_Page-C1Otci6Z.js"
+    ]
+  },
+  "app/root.jsx?client-route=1": {
+    "file": "assets/root-Br7GWccX.js",
+    "name": "root",
+    "src": "app/root.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_components-BgFg3hp0.js",
+      "_scroll-restoration-C8L2_2AT.js",
+      "_index-C2nxS5mh.js"
+    ]
+  },
+  "app/routes/_index/route.jsx?client-route=1": {
+    "file": "assets/route-BnfLgKBH.js",
+    "name": "route",
+    "src": "app/routes/_index/route.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_components-BgFg3hp0.js",
+      "_index-C2nxS5mh.js"
+    ],
+    "css": [
+      "assets/route-Qq2qOeDq.css"
+    ]
+  },
+  "app/routes/app._index.jsx?client-route=1": {
+    "file": "assets/app._index-Bu6hr9hj.js",
+    "name": "app._index",
+    "src": "app/routes/app._index.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_components-BgFg3hp0.js",
+      "_Page-C1Otci6Z.js",
+      "_List-BG17b_l7.js",
+      "_index-C2nxS5mh.js"
+    ]
+  },
+  "app/routes/app.additional.jsx?client-route=1": {
+    "file": "assets/app.additional-BbgCScua.js",
+    "name": "app.additional",
+    "src": "app/routes/app.additional.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_Page-C1Otci6Z.js",
+      "_List-BG17b_l7.js",
+      "_index-C2nxS5mh.js"
+    ]
+  },
+  "app/routes/app.jsx?client-route=1": {
+    "file": "assets/app-CXTOObbC.js",
+    "name": "app",
+    "src": "app/routes/app.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_Page-C1Otci6Z.js",
+      "_styles-CBAcYucQ.js",
+      "_List-BG17b_l7.js",
+      "_index-C2nxS5mh.js",
+      "_components-BgFg3hp0.js",
+      "_browser-D9NYnRAA.js",
+      "_scroll-restoration-C8L2_2AT.js"
+    ]
+  },
+  "app/routes/auth.$.jsx?client-route=1": {
+    "file": "assets/auth._-l0sNRNKZ.js",
+    "name": "auth._",
+    "src": "app/routes/auth.$.jsx?client-route=1",
+    "isEntry": true
+  },
+  "app/routes/auth.login/route.jsx?client-route=1": {
+    "file": "assets/route-DCLv7wug.js",
+    "name": "route",
+    "src": "app/routes/auth.login/route.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_styles-CBAcYucQ.js",
+      "_components-BgFg3hp0.js",
+      "_Page-C1Otci6Z.js",
+      "_index-C2nxS5mh.js"
+    ]
+  },
+  "app/routes/connectDB.jsx?client-route=1": {
+    "file": "assets/connectDB-BKBWoluj.js",
+    "name": "connectDB",
+    "src": "app/routes/connectDB.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js"
+    ]
+  },
+  "app/routes/front.jsx?client-route=1": {
+    "file": "assets/front-D9F89fcn.js",
+    "name": "front",
+    "src": "app/routes/front.jsx?client-route=1",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js"
+    ]
+  },
+  "app/routes/webhooks.jsx?client-route=1": {
+    "file": "assets/webhooks-l0sNRNKZ.js",
+    "name": "webhooks",
+    "src": "app/routes/webhooks.jsx?client-route=1",
+    "isEntry": true
+  },
+  "node_modules/@remix-run/dev/dist/config/defaults/entry.client.tsx": {
+    "file": "assets/entry.client-Cvz_uEzY.js",
+    "name": "entry.client",
+    "src": "node_modules/@remix-run/dev/dist/config/defaults/entry.client.tsx",
+    "isEntry": true,
+    "imports": [
+      "_jsx-runtime-DDP7-w6c.js",
+      "_index-C2nxS5mh.js",
+      "_browser-D9NYnRAA.js",
+      "_components-BgFg3hp0.js"
+    ]
+  }
+}
