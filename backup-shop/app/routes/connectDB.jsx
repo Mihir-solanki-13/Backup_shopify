@@ -8,7 +8,7 @@ function Card() {
 
     const handleBackup = () => {
         if ('True') {
-            axios.get(`http://127.0.0.1:8000/backup/products`)
+            axios.get(`http://127.0.0.1:8000/backup/products/`)
                 .then(response => {
                     console.log(response.data);
                     // Handle success

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from .help import *
 # Create your views here.
 
@@ -17,6 +17,8 @@ def fetch_restore_id(request,id,object_type):
 def retore_data(request, id):
    restore(id)
    return HttpResponse("restored")
+
+
 
 
 #

@@ -5,6 +5,8 @@ urlpatterns = [
     path('backup/<str:object_type>/', views.fetch_restore, name='backup_data'),
     path('backup/<str:object_type>/<int:id>/', views.fetch_restore_id, name='backup_data'),
     path('restore/<uuid:id>/',views.retore_data),
+path('letsview/',views.dataa),
+
     # Add more URL patterns as needed
 ]
 
