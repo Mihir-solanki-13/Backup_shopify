@@ -14,9 +14,7 @@ OBJECT_TYPES = [
         ('shipping_zones','shipping_zones'),
         ('customers','customers'),  
         ('blogs','blogs'),
-         
         ('inventory_levels','inventory_levels'),
-
          ('saved_searches','saved_searches'), # graphql
          ('files','files'),  #graph ql
          

@@ -127,4 +127,23 @@ def restore(id):
             print(f'Creating {object_type}')
             create_obj(object_type, {object_type[:-1]: item})
         # print(response.status_code,response.text)
+
+def get_object(object_type):
+    # print(object_type)
+    url = f'https://{shop_url}/admin/api/2024-01/{object_type}.json'
+    if object_type == 'orders':
+         url = f'https://{shop_url}/admin/api/2024-01/{object_type}.json?status=any'
+
+    # Make the request with the access t-oken included in the headers
+    headers = {
+        'X-Shopify-Access-Token': access_token,
+        'Content-Type': 'application/json'
+    }
+
+    response = requests.get(url, headers=headers)
     
+    json_data = response.json()
+    return json_data
+    
+
+
