@@ -30,7 +30,7 @@ class Object(models.Model):
     object_type = models.CharField(max_length=50, choices=OBJECT_TYPES)  # Specify choices
     data = models.JSONField()  # Field to store JSON data
     uuid = models.UUIDField(default=uuid.uuid4)  # Default UUID
-    backup_date = models.DateField(default=timezone.now().date())  # Current date/time
+    backup_date = models.DateTimeField(default=timezone.now)  # Current date/time
 
     def __str__(self):
         return f"{self.object_type}_{self.uuid}"  

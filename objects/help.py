@@ -5,6 +5,7 @@ import json
 from django.utils import timezone
 from .models import *
 from .help_ob import *
+import datetime
 
 shop_url = 'quickstart-b4fa8ebd.myshopify.com'
 access_token = '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' 
@@ -32,7 +33,7 @@ def backup_data(object_type):
     }
 
     response = requests.get(url, headers=headers)
-    print(response.status_code,response.text)
+    # print(response.status_code,response.text)
     data = response.json()
     # print(data)
     new_instance = Object(
@@ -40,7 +41,7 @@ def backup_data(object_type):
     object_type=object_type,  # Assuming the object_type is "product"
     data=data,  # Replace data with your actual JSON data
     uuid=uuid.uuid4(),  # Generate a UUID for the version
-    backup_date=timezone.now().date()  # Set the backup_date to the current date/time
+    backup_date=datetime.datetime.now()  # Set the backup_date to the current date/time
     )
 
     new_instance.save()
@@ -67,7 +68,7 @@ def backup_data_id(object,id):
     object_type=object,  # Assuming the object_type is "product"
     data=data,  # Replace data with your actual JSON data
     uuid=uuid.uuid4(),  # Generate a UUID for the version
-    backup_date=timezone.now().date()  # Set the backup_date to the current date/time
+    backup_date=datetime.datetime.now()  # Set the backup_date to the current date/time
     )
 
     new_instance.save()
@@ -113,7 +114,7 @@ def restore(id):
     if object_type[:-1] in data:
     #   print(data)
       response = restore_shopify_data(object_type, data) 
-      print(data)
+    #   print(data)
       if response.status_code != 200:
             print(f'Creating {object_type}')
             # create_obj(object_type,data)
@@ -145,5 +146,48 @@ def get_object(object_type):
     json_data = response.json()
     return json_data
     
+def get_object_by_id(object_type,id):
 
+    url = f'https://{shop_url}/admin/api/2024-01/{object_type}/{id}.json'
 
+    # Make the request with the access token included in the headers
+    if object == 'orders':
+        url = f'https://{shop_url}/admin/api/2024-01/{object_type}/{id}.json?fields=id,line_items,transactions,tags'
+
+        
+    headers = {
+        'X-Shopify-Access-Token': access_token,
+    }
+
+    response = requests.get(url, headers=headers)
+    data = response.json()
+    return data
+
+def restore_id(request,uuid,object_type,id):
+    Obj = Object.objects.get(uuid=uuid)
+    # print(Obj.uuid)
+    data = Obj.data
+    object_type = Obj.object_type
+    if(object_type=='blogs'):
+        process(object_type,data)
+        return
+    
+    if object_type[:-1] in data:
+    #   print(data)
+      response = restore_shopify_data(object_type, data) 
+    #   print(data)
+      if response.status_code != 200:
+            print(f'Creating {object_type}')
+            # create_obj(object_type,data)
+       
+    else:
+     for item in data[object_type]:
+        # print(item)
+      if item.get('id') == id:
+        print(item)
+        response = restore_shopify_data(object_type, {object_type[:-1]: item}) 
+        # remove the last character as query 
+        # if response.status_code != 200:
+        #     print(f'Creating {object_type}')
+        #     create_obj(object_type, {object_type[:-1]: item})
+        # print(response.status_code,response.text)
